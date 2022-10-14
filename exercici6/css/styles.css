@@ -1,0 +1,303 @@
+:root {
+  --principal-color: #8649e0;
+  --mini-blob-left: url(../img/mini3.svg);
+  --mini-blob-right: url(../img/mini5.svg);
+  --big-blob:url(../img/blob3.svg) ;
+}
+
+/* *** MOBILE FIRST DESIGN: EXTRA SMALL SCREENS *** */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+html {
+    font-size: 13px;
+}
+
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.container {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+
+.first-div {
+    flex: 1;
+    max-width: 18rem;
+    position: relative;
+}
+
+
+#bg-first-div {
+    height: 100%;
+   /* background-image: url(../img/mini3.svg); */
+}
+
+    @supports (-webkit-mask: url("")) or (mask: url("")) {
+        #bg-first-div {
+           -webkit-mask: var(--mini-blob-left);
+            mask: var(--mini-blob-left); 
+            -webkit-mask-size: 122%;
+            mask-size: 122%;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: 4% 94%;
+            mask-position: 4% 94%; 
+            background: var(--principal-color);
+        }
+    }
+
+
+#weather-forecast {
+    padding: 1.4rem 0.1rem 1rem 1.4rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+
+#weather-forecast i {
+    color: var(--principal-color);
+}
+
+
+.separator {
+    font-size: 2rem;
+}
+
+
+.card {
+    margin: 0.1rem 0;
+    padding-top: 2.4rem;
+    text-align: center;
+    min-height: 31rem;
+    min-width: 280px;
+    flex: 3;
+}
+
+    @supports (-webkit-mask: url("")) or (mask: url("")) {
+        .card {
+            -webkit-mask: var(--big-blob);
+            mask: var(--big-blob);
+            -webkit-mask-size: 100%;
+            mask-size: 100%;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
+            background: var(--principal-color);
+        }
+    }
+
+
+h1 {
+    font-size: 1.2rem;
+    color: white;
+    margin-top: 4.5rem;
+}
+
+
+.joke-content {
+    margin: 2rem auto;
+    max-width: 50%;
+}
+
+
+#joke-text {
+    margin: auto;
+    display: inline-block;
+    text-align: left; 
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+}
+
+
+#joke-rating {
+    margin: 1.8rem auto;
+    width: 90%;
+    display: none;
+    flex-direction: row;
+    gap: 2.2rem;
+    position: relative;
+} 
+
+
+#joke-rating i {
+    color:  rgb(250, 234, 9);
+    text-shadow: 2px 2px #3b3b3b;
+    cursor: pointer; 
+    font-size: 2rem;
+    transition: all .2s ease-in-out; 
+}
+
+#joke-rating i:hover {
+    transform: scale(1.8);
+}
+
+
+#next-joke {
+    cursor: pointer; 
+    color: #3b3b3b;
+    background-color:  rgb(250, 234, 9); 
+    border: 0.15rem solid #3b3b3b;
+    box-shadow: 0.2rem 0.3rem rgb(250, 234, 9) ,   var(--principal-color) 0.1rem 0.2rem inset;
+    border-radius: 50px;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+}
+
+#next-joke:hover {
+    color: var(--principal-color);
+}
+
+#next-joke:active {
+    color: var(--principal-color);
+    background-color: rgb(250, 234, 9);
+    box-shadow: none;
+    left: 5px;
+    top: 5px;
+}
+
+
+.last-div {
+    min-height: 12rem;
+    max-width: 15rem;
+    flex: 1;
+
+}
+
+    @supports (-webkit-mask: url("")) or (mask: url("")) {
+        .last-div {
+            -webkit-mask: var(--mini-blob-right);
+            mask: var(--mini-blob-right);
+            -webkit-mask-size: 110%;
+            mask-size: 110%;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: 0 3%;
+            mask-position: 0 3%; 
+            background: var(--principal-color);
+        }
+    }
+
+
+/* *** RESPONSIVE MEDIA QUERIES - SMALL, MEDIUM AND LARGE SCREENS *** */
+
+@media only screen and (min-width: 420px) {
+
+    html {
+        font-size: 15px;
+    }
+
+  
+    .card {
+        min-height: 36rem;
+    }
+
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+
+    #joke-text {
+        font-size: 1.2rem;
+    }
+
+
+    #joke-rating {
+        width: 50%;
+    }
+}
+
+
+@media only screen and (min-width: 576px) {
+
+    html {
+        font-size: 16px;
+    }
+
+
+    .card {  
+        align-self: center;
+    }
+
+
+    h1 {
+        font-size: 1.9rem;
+        margin-top: 5rem;
+    }
+
+
+    #joke-rating {
+        width: 70%;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    
+    .card {
+        margin-top: 0.1rem;
+        min-height: 34rem;
+        max-width: 31rem;
+    }
+
+
+    #joke-rating {
+       justify-content: space-around;
+       width: 70%;
+    }
+}
+
+
+@media only screen and (min-width: 920px) {
+    
+    .container {
+        flex-direction: row;
+    }
+
+
+    .card {
+       min-height: 32rem;
+    }
+
+
+    #joke-rating {
+        width: 60%;
+    } 
+}
+
+
+@media only screen and (min-width: 1200px) {
+
+    .container {
+        width: 70%;
+    }
+
+
+    .card {
+        min-height: 36rem;     
+    }
+
+
+    #joke-rating {
+        width: 60%;
+    } 
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comença el dia amb bon humor</title>
+    <link href="./css/styles.css" rel="stylesheet">
+</head>
+<body onload="showJoke()">
+    
+    <div class="weather-forecast">Predicció meteorològica</div>
+
+    <div class="card">
+      <h1>Preparat per riure? &#129315;</h1>
+      <div class="joke-content">
+        <div id="joke-text"></div>
+        <div class="joke-score"> 
+          <button onclick="jokeScore(1)"> &#128553; Meh</button>
+          <button onclick="jokeScore(2)">&#128528; Psé</button>
+          <button onclick="jokeScore(3)"> &#128514 LOL</button>
+        </div>
+      </div>
+      <br>
+      <button onclick="showJoke()" id="next-joke">Següent acudit</button>
+    </div>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

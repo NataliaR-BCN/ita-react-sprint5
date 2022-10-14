@@ -48,12 +48,12 @@ document.querySelectorAll('#joke-rating button').forEach(ratingButton => {
  * Gets user's position coords to provide local current weather
  * @returns nothing
  */
-function getLocation(): void {
+function getLocationEx5(): void {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition, errorLocation);
+    navigator.geolocation.getCurrentPosition(showPositionEx5, errorLocationEx5);
   } else { 
     alert("Geolocation is not supported by this browser.");
-    errorLocation();
+    errorLocationEx5();
   }
 }
 
@@ -61,16 +61,16 @@ function getLocation(): void {
  * Sends location data to the weather function
  * @returns nothing
  */
-function showPosition(position: any) {
-  showWeather(position.coords.latitude, position.coords.longitude);
+function showPositionEx5(position: any) {
+  showWeatherEx5(position.coords.latitude, position.coords.longitude);
 }
 
 /** 
  * Set position coords by default, if getLocation throws an error or user denies: 
  * @returns nothing
  */
-function errorLocation() {
-   showWeather(41.408, 2.1575); //Barcelona coords  
+function errorLocationEx5() {
+   showWeatherEx5(41.408, 2.1575); //Barcelona coords  
 }
 
 
@@ -81,9 +81,11 @@ function errorLocation() {
  * @returns nothing
  */
 
-async function showWeather(latValue: number, lonValue: number): Promise<void> {
+async function showWeatherEx5(latValue: number, lonValue: number): Promise<void> {
 
-   const API_WEATHER: string = `https://api.openweathermap.org/data/2.5/weather?lat=${latValue}&lon=${lonValue}&units=metric&lang=ca&appid=5ef4db07eb6deb8d094c4d8e544f4631`;
+    const MI_API_KEY = 'SORRY! Fake KEY ;)'; // @Pablo: te la paso en la entrega para no colgarla en GitHub
+
+    const API_WEATHER: string = `https://api.openweathermap.org/data/2.5/weather?lat=${latValue}&lon=${lonValue}&units=metric&lang=ca&appid=${MI_API_KEY}`;
 
     const response: Response = await fetch(API_WEATHER);
     const convert = await response.json();

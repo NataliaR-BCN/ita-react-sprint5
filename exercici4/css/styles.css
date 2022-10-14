@@ -1,0 +1,161 @@
+/* *** MOBILE FIRST DESIGN: EXTRA SMALL SCREENS *** */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+html {
+    font-size: 13px;
+}
+
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url(../img/pexels-helena-lopes-708392.jpg);
+    font-family: 'Roboto', sans-serif;
+}
+
+
+#weather-forecast {
+    padding: 1.8rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+
+.card {
+    margin: auto;
+    margin-top: 4rem;
+    width: 85%;
+    border-radius: 1.2rem;
+    background-color: white;
+    padding: 1.2rem 1rem 2.8rem 1rem;
+    text-align: center;
+    box-shadow: 0 0.3rem 0.6rem 0 rgba(0, 0, 0, 0.2), 0 0.45rem 1.3rem 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.joke-content {
+    margin: 3rem auto;
+    max-width: 80%;
+}
+
+
+#joke-text {
+    margin: auto;
+    display: inline-block;
+    text-align: left; 
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+
+#joke-rating {
+    margin: 2rem auto;
+    width: 90%;
+    display: none;
+    flex-direction: column;
+    row-gap: 0.8rem;
+} 
+
+
+#joke-rating button {
+    color: white;
+    cursor: pointer; 
+    background-color: rgb(195, 117, 219);
+    border: 1px solid rgb(185, 96, 212);
+    border-radius: 0.5rem;
+    padding: 0.4rem 1rem;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+
+#joke-rating button:hover {
+    color: rgb(185, 96, 212);
+    background-color: white;
+}
+
+
+#next-joke {
+    cursor: pointer; 
+    color: white;
+    background-color: rgb(0, 217, 255);
+    border: 1px solid rgb(0, 217, 255);
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+
+#next-joke:hover {
+    color: rgb(0, 217, 255);
+    background-color: white;
+}
+
+
+/* *** RESPONSIVE MEDIA QUERIES - SMALL, MEDIUM AND LARGE SCREENS *** */
+
+@media only screen and (min-width: 420px) {
+
+    html {
+        font-size: 15px;
+    }
+
+    .card {
+        width: 70%;
+    }
+
+    #joke-rating {
+        width: 50%;
+    }
+}
+
+
+@media only screen and (min-width: 576px) {
+
+    html {
+        font-size: 17px;
+    }
+
+    .card {
+        margin-top: 6rem;
+        width: 70%;
+    }
+
+    #joke-rating {
+        width: 70%;
+        column-gap: 1rem;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+
+    .card {
+        margin-top: 9rem;
+    }
+
+    #joke-rating {
+       flex-direction: row;
+       justify-content: space-around;
+       width: 80%;
+    } 
+}
+
+
+@media only screen and (min-width: 920px) {
+
+    .card {
+        width: 60%;
+    }
+
+    #joke-rating {
+        width: 80%;
+    } 
+}
