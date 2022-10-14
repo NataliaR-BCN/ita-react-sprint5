@@ -18,10 +18,6 @@ async function showJokeByScreen(): Promise<void> {
 
     const textJoke = document.getElementById('joke-text') as HTMLDivElement;
 
-    const buttonNextJoke = document.getElementById('next-joke') as HTMLButtonElement;
-
     textJoke.innerHTML = randomJoke.joke;
-    buttonNextJoke.innerText = "Següent acudit";
 
 }
-
