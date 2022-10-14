@@ -1,41 +1,17 @@
 //NIVELL 1 
 
-/** 
- * Shows a random joke from an API. 
- * @returns nothing
- */
-async function showAJoke(): Promise<void> {
-        const response: Response = await fetch(`https://icanhazdadjoke.com/`, {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json'
-        }
-    });
-
-    const randomJoke = await response.json();
-
-    const textJoke = document.getElementById('joke-text') as HTMLDivElement;
-    const jokeRating = document.getElementById('joke-rating') as HTMLDivElement;
-    const buttonNextJoke = document.getElementById('next-joke') as HTMLButtonElement;
-
-    textJoke.innerHTML = randomJoke.joke;
-
-    jokeRating.style.display = "flex";
-    buttonNextJoke.innerText = "Següent acudit";   
-}
-
 //Exercici 3 refactored:
 
-type reportedJokeObj = {joke: string; score: number; date: string;}
+type reportedJokeObjEx5 = {joke: string; score: number; date: string;}
 
-const reportJokesArray: reportedJokeObj[] = [];
+const reportJokesArrayEx5: reportedJokeObjEx5[] = [];
 
 /** 
  * Collects joke's data, converts rating feedback in a score and stores all (joke, user's feedback as a score and date) in an array. 
  * @param ratingSelected - The string of the rating selected by user
  * @returns nothing
  */
-const jokeScoreSaved = (ratingSelected: string) => {
+const jokeScoreSavedEx5 = (ratingSelected: string) => {
     
     //Conversion from rating to score:
     let scoreConverted: number; 
@@ -46,24 +22,24 @@ const jokeScoreSaved = (ratingSelected: string) => {
     const textJoke = document.getElementById('joke-text') as HTMLDivElement;
     const currentJoke: string = textJoke.innerHTML;
 
-    const jokeRated: reportedJokeObj = {
+    const jokeRated: reportedJokeObjEx5 = {
         joke: currentJoke,
         score: scoreConverted,
         date: currentDate
     };
 
-    reportJokesArray.push(jokeRated);
+    reportJokesArrayEx5.push(jokeRated);
 
-    console.log(reportJokesArray);
+    console.log(reportJokesArrayEx5);
 }
-
 
 //Event to get jokes' rating:
 document.querySelectorAll('#joke-rating button').forEach(ratingButton => {
     ratingButton.addEventListener('click',function(this: HTMLButtonElement){
-        jokeScoreSaved(this.id);
+        jokeScoreSavedEx5(this.id);
   })
 });
+
 
 //NIVELL 2
 //Exercici 4
@@ -111,11 +87,66 @@ async function showWeather(latValue: number, lonValue: number): Promise<void> {
 
     const response: Response = await fetch(API_WEATHER);
     const convert = await response.json();
-    
-    let iconNameInOpenWeather = convert.weather[0].icon;
 
     const weatherInfo = document.getElementById('weather-forecast') as HTMLDivElement;
 
     weatherInfo.innerHTML = `Avui: ${convert.weather[0].description}`;
 
+}
+
+//Exercici 5:
+/**
+ * Shows selected joke on screen:
+ * @param - The string with the joke randomly selected 
+ * @returns nothing
+ */
+function paintJoke(joke: string): void {
+    const textJoke = document.getElementById('joke-text') as HTMLDivElement;
+    const jokeRating = document.getElementById('joke-rating') as HTMLDivElement;
+    const buttonNextJoke = document.getElementById('next-joke') as HTMLButtonElement;
+
+    textJoke.innerHTML = joke;
+    jokeRating.style.display = "flex";
+    buttonNextJoke.innerText = "Següent acudit"; 
+}
+
+/**
+ * Selects a random joke from Chuck Norris' jokes API and sends it to his presentation.
+ * @returns nothing
+ */
+async function showChuckJoke(): Promise<void> {
+    const response: Response = await fetch('https://api.chucknorris.io/jokes/random');
+    const joke = await response.json();
+
+    paintJoke(joke.value); 
+}
+
+/**
+ * Selects a random joke from I can haz dad joke API and sends it to his presentation.
+ * @returns nothing
+ */
+async function showDadJoke(): Promise<void> {
+    const response: Response = await fetch(`https://icanhazdadjoke.com/`, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json'
+        }
+    });
+    const randomJoke = await response.json();
+
+    paintJoke(randomJoke.joke);
+}
+
+/** 
+ * Randomly sends to one joke API or another
+ * @returns nothing
+ */
+function randomJoke(): void {
+    let randomJokeAPI: number = Math.random();
+
+    if (randomJokeAPI > 0.495) {
+       showChuckJoke();
+    } else {
+       showDadJoke();
+    }
 }
