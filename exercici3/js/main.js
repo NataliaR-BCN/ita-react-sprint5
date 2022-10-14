@@ -26,7 +26,7 @@ function showJoke() {
         textJoke.innerHTML = randomJoke.joke;
     });
 }
-const reportJokes = [];
+const reportJokes_ = [];
 /**
  * Collects joke's data (joke, user's feedback and date) and stores it in an array.
  * @param scoreSelected - The number of the score selected by user

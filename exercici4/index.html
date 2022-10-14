@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comença el dia amb bon humor</title>
+    <link href="./css/styles.css" rel="stylesheet">
+        <!-- Icones de FontAwesome -->
+    <script src="https://kit.fontawesome.com/2c29aaaa97.js" crossorigin="anonymous"></script>
+</head>
+<body onload="getLocation()">
+    
+    <div id="weather-forecast">Predicció meteorològica</div>
+
+    <div class="card">    
+        <h1>Preparat per riure? &#129315;</h1>
+        <div class="joke-content">
+            <div id="joke-text"></div>
+            <div id="joke-rating">
+                <button id="bad"> &#128553; Meh</button>
+                <button id="regular">&#128528; Psé</button>
+                <button id="good">&#128514 LOL</button>
+            </div>
+        </div>
+        <br>
+        <button onclick="showAJoke()" id="next-joke">Comença a riure!</button>
+    </div>
+
+<script src="./js/main.js"></script>
+</body>
+</html>
