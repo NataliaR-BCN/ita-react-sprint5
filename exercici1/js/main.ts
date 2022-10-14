@@ -6,7 +6,7 @@
  * @returns nothing
  */
 
-async function showJoke(): Promise<void> {
+async function showJokeByConsole(): Promise<void> {
         const response: Response = await fetch(`https://icanhazdadjoke.com/`, {
         method: 'GET',
         headers: {

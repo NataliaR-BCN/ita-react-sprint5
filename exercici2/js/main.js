@@ -1,6 +1,6 @@
 "use strict";
 //Nivell 1
-//Exercici 1
+//Exercici 2
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -11,10 +11,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 /**
- * Shows in console a random joke from an API.
+ * Shows a random joke from an API.
  * @returns nothing
  */
-function showJokeByConsole() {
+function showJokeByScreen() {
     return __awaiter(this, void 0, void 0, function* () {
         const response = yield fetch(`https://icanhazdadjoke.com/`, {
             method: 'GET',
@@ -23,6 +23,9 @@ function showJokeByConsole() {
             }
         });
         const randomJoke = yield response.json();
-        console.log(randomJoke.joke);
+        const textJoke = document.getElementById('joke-text');
+        const buttonNextJoke = document.getElementById('next-joke');
+        textJoke.innerHTML = randomJoke.joke;
+        buttonNextJoke.innerText = "Següent acudit";
     });
 }
