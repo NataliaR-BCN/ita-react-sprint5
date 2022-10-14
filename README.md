@@ -4,9 +4,10 @@ Thanks to:
 
 APIs:
 
-https://icanhazdadjoke.com/
-https://api.chucknorris.io/
-https://openweathermap.org/api/one-call-3
+  - https://icanhazdadjoke.com/
+  - https://api.chucknorris.io/
+  - https://openweathermap.org/api/one-call-3
+
 @Foto de Helena Lopes en Pexels
 
 Blob generator: https://10015.io/tools/svg-blob-generator
